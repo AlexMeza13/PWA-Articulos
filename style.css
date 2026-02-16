@@ -1,0 +1,137 @@
+/* Variables Globales - Colores Institucionales UABC [cite: 5, 176] */
+:root {
+    --primary-color: #00723e; /* Verde UABC */
+    --secondary-color: #ffbf00; /* Dorado institucional */
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #dddddd;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+}
+
+/* Configuración Base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+/* Contenedor Principal (Card) [cite: 223] */
+.card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-top: 8px solid var(--primary-color);
+}
+
+/* Barra de Estado de Red (PWA Infraestructura) [cite: 232] */
+.status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: background 0.3s ease;
+}
+
+.online { background-color: var(--success-color); box-shadow: 0 0 5px var(--success-color); }
+.offline { background-color: var(--danger-color); box-shadow: 0 0 5px var(--danger-color); }
+
+/* Tipografía */
+h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Estilos de Formulario (Evaluación Estructurada) [cite: 212] */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Evita que el padding afecte el ancho */
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Botón de Acción Principal */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s;
+}
+
+button:hover {
+    background-color: #005a31;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Consola de Logs (Persistencia) [cite: 229] */
+.log {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--secondary-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: #444;
+    min-height: 40px;
+}
+
+/* Ajustes para Dispositivos Móviles (PWA) [cite: 63] */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+        box-shadow: none; /* Diseño más plano para móviles */
+    }
+}
