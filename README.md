@@ -1,6 +1,4 @@
-=================================================================
 SISTEMA EDITORIAL PWA - ARQUITECTURA OFFLINE-FIRST 
-=================================================================
 
 Este proyecto es una Aplicacion Web Progresiva (PWA) disenada para gestionar evaluaciones de articulos editoriales. Utiliza una arquitectura Offline-First, lo que significa que los revisores pueden trabajar sin conexion a internet y el sistema sincronizara automaticamente los datos con el servidor central cuando la red se restablezca.
 
