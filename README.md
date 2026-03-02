@@ -1,40 +1,59 @@
-# Manual de Operacion y Verificacion Tecnica - PWA Editorial
+=================================================================
+SISTEMA EDITORIAL PWA - ARQUITECTURA OFFLINE-FIRST 
+=================================================================
 
-Este documento proporciona las instrucciones necesarias para ejecutar y validar el funcionamiento del sistema de gestion de articulos academicos desarrollado bajo la metodologia ISA/IA. El sistema esta diseñado para permitir a revisores, como la Dra. Mariela Hinojoza, trabajar de forma offline y sincronizar sus evaluaciones posteriormente.
+Este proyecto es una Aplicacion Web Progresiva (PWA) disenada para gestionar evaluaciones de articulos editoriales. Utiliza una arquitectura Offline-First, lo que significa que los revisores pueden trabajar sin conexion a internet y el sistema sincronizara automaticamente los datos con el servidor central cuando la red se restablezca.
 
-## Archivos Necesarios (Incluidos en el repositorio)
+TECNOLOGIAS UTILIZADAS
+- Frontend: HTML5, CSS3, JavaScript (Vanilla).
+- Almacenamiento Local: IndexedDB y Cache Storage (Service Worker).
+- Backend: Node.js con Express.
+- Base de Datos: MySQL / MariaDB (mediante AppServ).
 
-Para el correcto funcionamiento de la Progressive Web App (PWA), asegurese de tener los siguientes archivos en el mismo directorio raiz:
+-----------------------------------------------------------------
+COMO ENCENDER EL PROYECTO (Flujo de Trabajo)
+-----------------------------------------------------------------
+Para que el sistema funcione correctamente y pueda sincronizar datos, debes encender las piezas en el siguiente orden:
 
-* index.html: Estructura de la interfaz de usuario.
+1. Encender la Base de Datos (AppServ)
+   - Ve al menu de Inicio de Windows.
+   - Busca la carpeta de AppServ y haz clic en "Start MySQL" (o Start All Services).
+   - (Opcional) Puedes verificar que esta corriendo entrando a http://localhost/phpmyadmin en tu navegador.
 
-* style.css: Hoja de estilos para el diseño responsivo.
+2. Levantar el Servidor Backend (Node.js)
+   - Abre Visual Studio Code.
+   - Abre la carpeta de tu backend (backend-editorial).
+   - Abre la terminal integrada (Ctrl + ñ).
+   - Ejecuta el servidor con el comando: node server.js
+   - Debes ver el mensaje de que el servidor esta corriendo en el puerto 3000. No cierres esta terminal.
 
-* app.js: Logica de negocio, gestion de eventos de red y persistencia en IndexedDB.
+3. Iniciar la PWA (Frontend)
+   - En Visual Studio Code, abre la carpeta de tu frontend.
+   - Haz clic en el boton "Go Live" en la esquina inferior derecha.
+   - La aplicacion se abrira automaticamente en tu navegador web.
 
-* sw.js: Service Worker encargado del almacenamiento en cache y funcionamiento offline.
+-----------------------------------------------------------------
+COMO APAGAR EL PROYECTO DE FORMA SEGURA
+-----------------------------------------------------------------
+Cuando termines de trabajar, sigue estos pasos para liberar la memoria de tu equipo:
 
-* manifest.json: Metadatos para permitir la instalacion de la aplicacion.
+1. Detener el Backend
+   - Ve a la terminal de Visual Studio Code donde esta corriendo el servidor.
+   - Presiona Ctrl + C.
+   - (Si te pregunta "Desea terminar el trabajo por lotes", escribe S y presiona Enter, o presiona Ctrl + C nuevamente).
 
+2. Detener el Frontend
+   - En Visual Studio Code, ve a la esquina inferior derecha.
+   - Haz clic sobre el puerto que esta transmitiendo (ej. Port: 5500) para detener Live Server.
 
-## Instrucciones de Ejecucion
-Debido a que los Service Workers requieren un contexto seguro para funcionar, es obligatorio utilizar un servidor local.
-1. Abra la carpeta del proyecto en un editor de codigo como VS Code.
-2. Utilice una extension de servidor local como Live Server.
-3. Haga clic derecho en index.html y seleccione Open with Live Server.
-4. La aplicacion se ejecutara en su navegador predeterminado (Opera GX, Chrome o Edge) bajo la direccion [http://127.0.0.1:5500](https://www.google.com/search?q=http://127.0.0.1:5500).
+3. Apagar la Base de Datos
+   - Ve al menu de Inicio de Windows.
+   - Busca la carpeta de AppServ y haz clic en "Stop MySQL" (o Stop All Services).
 
-## Instalacion como Aplicacion
-Para habilitar la experiencia completa de PWA y que la aplicacion aparezca en su escritorio o menu de inicio:
-1. En la barra de direcciones del navegador, localice el icono de instalacion (generalmente un simbolo de suma o una computadora con flecha).
-2. Haga clic en Instalar.
-3. La aplicacion ahora se ejecutara en una ventana independiente sin las barras de navegacion del explorador.
-
-## Verificacion en Modo Desarrollador (Chromium)
-Para confirmar que los datos se estan guardando correctamente en la capa de persistencia local sin depender de internet:
-1. Acceso a Herramientas: Presione la tecla F12 o utilice el atajo Ctrl + Shift + I.
-2. Pestaña de Aplicacion: En el menu superior de la consola, busque la pestaña denominada Application (Aplicacion). Si no es visible, haga clic en el icono de flechas dobles (>>) para ver las opciones ocultas.
-3. Inspeccion de IndexedDB:
-* En el panel izquierdo, localice la seccion Storage (Almacenamiento).
-* Despliegue la opcion IndexedDB.
-* Haga clic en EditorialDB y seleccione el almacen de objetos evaluaciones.
+-----------------------------------------------------------------
+COMO PROBAR EL MODO OFFLINE
+-----------------------------------------------------------------
+1. Con la app corriendo, abre las Herramientas de Desarrollador en tu navegador (F12).
+2. Ve a la pestana Network (Red) y cambia la conexion a "Offline".
+3. Envia una evaluacion. Veras que se guarda en IndexedDB y el estado marca "Pendiente".
+4. Regresa la conexion a "No throttling" (Online). La app detectara la red y sincronizara el registro automaticamente con MySQL.
