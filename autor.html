@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal del Autor para subir artículos.">
+    <title>PWA Editorial - Autor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6a1b9a">
+</head>
+<body>
+    <main>
+        <div class="card">
+            <a href="index.html" class="btn-back">⬅ Volver al Menú</a>
+            
+            <h2>Portal del Autor</h2>
+            <p>Sube tu artículo para revisión del comité editorial.</p>
+            
+            <form id="autorForm">
+                <label for="archivo">Documento (PDF, DOCX, TXT):</label>
+                <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx,.txt" required>
+                
+                <button type="submit">Subir Artículo</button>
+            </form>
+            <div id="logAutor" class="log">Esperando archivo...</div>
+
+            <hr style="margin: 2rem 0; border: 1px solid #ccc;">
+            
+            <h3>Estado de mis envíos</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Archivo</th>
+                            <th>Estado</th>
+                            <th>Comentarios del Revisor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaAutor">
+                        <tr>
+                            <td colspan="3" style="text-align: center;">Cargando historial...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="autor.js"></script>
+</body>
+</html>

@@ -135,3 +135,153 @@ button:active {
         box-shadow: none; /* Diseño más plano para móviles */
     }
 }
+
+/* --- ESTILOS DEL MENÚ PRINCIPAL --- */
+.text-center {
+    text-align: center;
+}
+.menu-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+.btn-rol {
+    background-color: #00723e;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+.btn-rol:hover {
+    background-color: #00552e;
+}
+
+/* --- ESTILOS DEL PORTAL DE AUTOR Y EDITOR --- */
+.btn-back {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #00723e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.badge-enviado { color: #005bb5; font-weight: bold; }
+.badge-aprobado { color: #00723e; font-weight: bold; }
+.badge-rechazado { color: #d93025; font-weight: bold; }
+
+/* --- NUEVO TEMA: MORADO Y NEGRO --- */
+
+/* Títulos principales en morado */
+h1, h2, h3 {
+    color: #6a1b9a; 
+}
+
+/* El adorno superior de las tarjetas en negro */
+.card {
+    border-top: 5px solid #121212; 
+}
+
+/* Botones morados que se vuelven negros al pasar el mouse */
+button {
+    background-color: #6a1b9a;
+    color: #ffffff;
+}
+button:hover {
+    background-color: #121212;
+}
+
+/* Botón de volver al menú */
+.btn-back {
+    color: #6a1b9a;
+}
+.btn-back:hover {
+    color: #121212;
+}
+
+/* Encabezados de las tablas en negro */
+th {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Indicador de estado (Aprobado en morado, en lugar de verde) */
+.badge-aprobado {
+    background-color: #6a1b9a;
+    color: white;
+}
+
+/* Botones morados definitivos a prueba de todo */
+button, 
+button[type="submit"], 
+input[type="submit"],
+.btn {
+    background-color: #6a1b9a !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+button:hover, 
+button[type="submit"]:hover, 
+input[type="submit"]:hover,
+.btn:hover {
+    background-color: #121212 !important;
+}
+
+/* --- Botones del Menú Principal (Enlaces) --- */
+.card a:not(.btn-back), 
+a.btn, 
+.menu-btn {
+    display: inline-block;
+    background-color: #6a1b9a !important;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 5px; /* Para que mantengan sus bordes redondeados */
+}
+
+.card a:not(.btn-back):hover, 
+a.btn:hover, 
+.menu-btn:hover {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* Protegemos el botón de regresar para que siga siendo texto */
+.btn-back {
+    background-color: transparent !important;
+    color: #6a1b9a !important;
+}
+
+.btn-back:hover {
+    color: #121212 !important;
+}

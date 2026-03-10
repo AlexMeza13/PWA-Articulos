@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal del Revisor - Evaluación de artículos pendientes.">
+    <title>PWA Editorial - Revisor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6a1b9a">
+</head>
+<body>
+    <main>
+        <div class="card">
+            <a href="index.html" class="btn-back">⬅ Volver al Menú</a>
+            
+            <div class="status-bar">
+                <div id="net-indicator" class="indicator online"></div>
+                <span id="net-text">Conectado</span>
+            </div>
+            <h2>Portal del Revisor</h2>
+            <p>Selecciona un artículo pendiente para evaluarlo.</p>
+            
+            <form id="evalForm">
+                <label for="articulo_id">Artículo a evaluar:</label>
+                <select id="articulo_id" required>
+                    <option value="">Cargando pendientes...</option>
+                </select>
+
+                <label for="calificacion">Calificación (1-10):</label>
+                <input type="number" id="calificacion" min="1" max="10" required>
+                
+                <label for="decision">Veredicto:</label>
+                <select id="decision" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Aprobado">Aprobar</option>
+                    <option value="Rechazado">Rechazar</option>
+                </select>
+                
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" rows="4" required></textarea>
+                
+                <button type="submit">Enviar Evaluación</button>
+            </form>
+            <div id="logSystem" class="log">Esperando acción...</div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
