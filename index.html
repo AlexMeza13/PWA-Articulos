@@ -3,33 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWA Editorial - Evaluación</title>
+    <meta name="description" content="Sistema Editorial PWA - Menú Principal para selección de roles.">
+    <title>PWA Editorial - Inicio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00723e">
+<meta name="theme-color" content="#6a1b9a">
 </head>
 <body>
-    <div class="card">
-        <div class="status-bar">
-            <div id="net-indicator" class="indicator online"></div>
-            <span id="net-text">Conectado</span>
+    <main>
+        <div class="card text-center">
+            <h2>Sistema Editorial PWA</h2>
+            <p>Seleccione su rol para ingresar al sistema:</p>
+            
+            <div class="menu-roles">
+                <a href="autor.html" class="btn-rol"> Modo Autor</a>
+                <a href="revisor.html" class="btn-rol"> Modo Revisor</a>
+                <a href="editor.html" class="btn-rol"> Modo Editor</a>
+            </div>
         </div>
-        <h2>Evaluación Técnica</h2>
-        <form id="evalForm">
-            <label>Calificación (1-10):</label>
-            <input type="number" id="calificacion" min="1" max="10" required>
-            <label>Veredicto:</label>
-            <select id="decision" required>
-                <option value="">Seleccione...</option>
-                <option value="Aprobado">Aprobar</option>
-                <option value="Rechazado">Rechazar</option>
-            </select>
-            <label>Comentarios:</label>
-            <textarea id="comentarios" rows="4" required></textarea>
-            <button type="submit">Guardar Localmente</button>
-        </form>
-        <div id="logSystem" class="log">Esperando acción...</div>
-    </div>
-    <script src="app.js"></script>
+    </main>
 </body>
 </html>

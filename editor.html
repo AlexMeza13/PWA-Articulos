@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard del Editor - Control y estado de artículos.">
+    <title>PWA Editorial - Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6a1b9a">
+</head>
+<body>
+    <main>
+        <div class="card" style="max-width: 900px;"> 
+            <a href="index.html" class="btn-back">⬅ Volver al Menú</a>
+            
+            <h2>Panel de Control del Editor</h2>
+            <p>Lista general de artículos recibidos y su evaluación.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Documento</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Nota</th>
+                            <th>Comentarios</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaEditor">
+                        <tr>
+                            <td colspan="6" style="text-align: center;">Cargando artículos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="editor.js"></script>
+</body>
+</html>
